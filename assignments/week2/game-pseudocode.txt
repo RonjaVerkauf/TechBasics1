@@ -1,0 +1,75 @@
+
+animals = [
+    {"name": "African Elephant", "family": "Elephantidae", "average_size": "3000 kg", "geography": "Africa", "nutrition": "Herbivore"},
+    {"name": "Bald Eagle", "family": "Accipitridae", "average_size": "3.5 kg", "geography": "North America", "nutrition": "Carnivore"},
+    {"name": "Giant Panda", "family": "Ursidae", "average_size": "100 kg", "geography": "Asia", "nutrition": "Herbivore"},
+    {"name": "Bengal Tiger", "family": "Felidae", "average_size": "220 kg", "geography": "Asia", "nutrition": "Carnivore"},
+    {"name": "Kangaroo", "family": "Macropodidae", "average_size": "85 kg", "geography": "Australia", "nutrition": "Herbivore"},
+    {"name": "Cheetah", "family": "Felidae", "average_size": "72 kg", "geography": "Africa", "nutrition": "Carnivore"},
+    {"name": "Polar Bear", "family": "Ursidae", "average_size": "450 kg", "geography": "Arctic", "nutrition": "Carnivore"},
+    {"name": "Blue Whale", "family": "Balaenopteridae", "average_size": "150000 kg", "geography": "Global", "nutrition": "Carnivore"},
+    {"name": "Great White Shark", "family": "Lamnidae", "average_size": "1100 kg", "geography": "Global", "nutrition": "Carnivore"},
+    {"name": "Gorilla", "family": "Hominidae", "average_size": "160 kg", "geography": "Africa", "nutrition": "Herbivore"},
+    {"name": "Koala", "family": "Phascolarctidae", "average_size": "14 kg", "geography": "Australia", "nutrition": "Herbivore"},
+    {"name": "Wolf", "family": "Canidae", "average_size": "45 kg", "geography": "Eurasia", "nutrition": "Carnivore"},
+    {"name": "Sloth", "family": "Bradypodidae", "average_size": "4.5 kg", "geography": "South America", "nutrition": "Herbivore"},
+    {"name": "Grizzly Bear", "family": "Ursidae", "average_size": "270 kg", "geography": "North America", "nutrition": "Omnivore"},
+    {"name": "Orangutan", "family": "Hominidae", "average_size": "75 kg", "geography": "Asia", "nutrition": "Omnivore"},
+    {"name": "Hippopotamus", "family": "Hippopotamidae", "average_size": "1500 kg", "geography": "Africa", "nutrition": "Herbivore"},
+    {"name": "Moose", "family": "Cervidae", "average_size": "500 kg", "geography": "North America", "nutrition": "Herbivore"},
+    {"name": "Penguin", "family": "Spheniscidae", "average_size": "30 kg", "geography": "Antarctica", "nutrition": "Carnivore"},
+    {"name": "Red Fox", "family": "Canidae", "average_size": "6 kg", "geography": "Eurasia", "nutrition": "Omnivore"},
+    {"name": "Ostrich", "family": "Struthionidae", "average_size": "120 kg", "geography": "Africa", "nutrition": "Omnivore"},
+    {"name": "Raccoon", "family": "Procyonidae", "average_size": "9 kg", "geography": "North America", "nutrition": "Omnivore"},
+    {"name": "Zebra", "family": "Equidae", "average_size": "350 kg", "geography": "Africa", "nutrition": "Herbivore"},
+    {"name": "Camel", "family": "Camelidae", "average_size": "600 kg", "geography": "Asia", "nutrition": "Herbivore"},
+    {"name": "Lynx", "family": "Felidae", "average_size": "25 kg", "geography": "Eurasia", "nutrition": "Carnivore"},
+    {"name": "Sea Otter", "family": "Mustelidae", "average_size": "30 kg", "geography": "North America", "nutrition": "Carnivore"},
+    {"name": "Toad", "family": "Bufonidae", "average_size": "200 g", "geography": "Global", "nutrition": "Insectivore"},
+    {"name": "King Cobra", "family": "Elapidae", "average_size": "6 kg", "geography": "Asia", "nutrition": "Carnivore"},
+    {"name": "Peacock", "family": "Phasianidae", "average_size": "5 kg", "geography": "Asia", "nutrition": "Omnivore"},
+    {"name": "Wolverine", "family": "Mustelidae", "average_size": "18 kg", "geography": "Eurasia", "nutrition": "Carnivore"},
+    {"name": "Jaguar", "family": "Felidae", "average_size": "100 kg", "geography": "South America", "nutrition": "Carnivore"},
+    {"name": "Manatee", "family": "Trichechidae", "average_size": "500 kg", "geography": "North America", "nutrition": "Herbivore"},
+    {"name": "Chameleon", "family": "Chamaeleonidae", "average_size": "150 g", "geography": "Africa", "nutrition": "Insectivore"},
+    {"name": "Flamingo", "family": "Phoenicopteridae", "average_size": "3.5 kg", "geography": "Africa", "nutrition": "Omnivore"},
+    {"name": "Iguana", "family": "Iguanidae", "average_size": "5 kg", "geography": "South America", "nutrition": "Herbivore"},
+    {"name": "Albatross", "family": "Diomedeidae", "average_size": "8 kg", "geography": "Oceania", "nutrition": "Carnivore"},
+    {"name": "Capybara", "family": "Caviidae", "average_size": "50 kg", "geography": "South America", "nutrition": "Herbivore"},
+    {"name": "Armadillo", "family": "Dasypodidae", "average_size": "6 kg", "geography": "South America", "nutrition": "Insectivore"},
+    {"name": "Tapir", "family": "Tapiridae", "average_size": "250 kg", "geography": "South America", "nutrition": "Herbivore"},
+    {"name": "Hyena", "family": "Hyaenidae", "average_size": "60 kg", "geography": "Africa", "nutrition": "Carnivore"},
+    {"name": "Okapi", "family": "Giraffidae", "average_size": "250 kg", "geography": "Africa", "nutrition": "Herbivore"},
+    {"name": "Platypus", "family": "Ornithorhynchidae", "average_size": "2.5 kg", "geography": "Australia", "nutrition": "Carnivore"},
+    {"name": "Axolotl", "family": "Ambystomatidae", "average_size": "300 g", "geography": "North America", "nutrition": "Carnivore"},
+    {"name": "Snow Leopard", "family": "Felidae", "average_size": "55 kg", "geography": "Asia", "nutrition": "Carnivore"},
+    {"name": "Bison", "family": "Bovidae", "average_size": "900 kg", "geography": "North America", "nutrition": "Herbivore"},
+    {"name": "Aardvark", "family": "Orycteropodidae", "average_size": "60 kg", "geography": "Africa", "nutrition": "Insectivore"},
+    {"name": "Meerkat", "family": "Herpestidae", "average_size": "1 kg", "geography": "Africa", "nutrition": "Omnivore"},
+    {"name": "Mole", "family": "Talpidae", "average_size": "100 g", "geography": "Eurasia", "nutrition": "Insectivore"},
+    {"name": "Narwhal", "family": "Monodontidae", "average_size": "800 kg", "geography": "Arctic", "nutrition": "Carnivore"},
+    {"name": "Horned Lizard", "family": "Phrynosomatidae", "average_size": "100 g", "geography": "North America", "nutrition": "Insectivore"},
+    {"name": "Tarsier", "family": "Tarsiidae", "average_size": "130 g", "geography": "Asia", "nutrition": "Carnivore"}
+]
+
+n = length of list
+
+print "Hallo and welcome to the animal guessing game"
+sleep 1 second
+print "Please enter a number between 1 and {n}"
+read user's input into variable "number1"
+if("number1" is a number and it is between 1 and n) {
+    print "You chose " + list["number!"]["name"]
+    print "What would you like to guess about a " + list["number!"]["name"]
+    print "(1) average weight"
+    print "(2) geography"
+    print "(3) nutrition"
+    read user's input into variable "number2"
+    if(...validate ok..)
+
+    else
+} else {
+    tell the user the imput is invalid and
+    ask the user the re-enter a number
+}
+
