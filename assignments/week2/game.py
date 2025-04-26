@@ -1,5 +1,4 @@
-Animal guessing game:
-Given these animal list of length n:
+from random import choice
 
 animals = [
     {"name": "African Elephant", "family": "Elephantidae", "average_size": "3000 kg", "geography": "Africa", "nutrition": "Herbivore"},
@@ -53,24 +52,34 @@ animals = [
     {"name": "Horned Lizard", "family": "Phrynosomatidae", "average_size": "100 g", "geography": "North America", "nutrition": "Insectivore"},
     {"name": "Tarsier", "family": "Tarsiidae", "average_size": "130 g", "geography": "Asia", "nutrition": "Carnivore"}
 ]
+import time
+print("Hello and welcome to the animal guessing game")
+time.sleep(2)
+length = len(animals)
+choice = int(input("Please enter a number between 1 and 50: "))
+if choice < 1 or choice > 50:
+    print("The number you entered is invalid. Please try again")
+else:
+    selected_animal = animals[choice - 1]['name']
+    print(f"You got the animal: {selected_animal}! ")
+time.sleep(1)
+while True:
+    try:
+        guess_choice = int(input("Do you want to guess: \n(1) Average Size (Weight)\n(2) Geography\n(3) Nutrition\nPlease enter 1, 2, or 3: "))
+        if guess_choice in [1, 2, 3]:
+            break
+        else:
+            print("Invalid choice. Please enter 1, 2, or 3.")
+    except ValueError:
+        print("That wasn't a valid choice. Try again!")
+if guess_choice == 1:
+    # Extract the range of average size (in string format) and the unit (like "kg" or "cm")
+    size_range, unit = selected_animal['average_size'].split()  # Split "150-300 kg" into ["150-300", "kg"]
+    min_size, max_size = map(int, size_range.split('-'))  # Split "150-300" into [150, 300]
+
+    print(f"Guess the average weight (in {unit}) of a {selected_animal['name']}!"
 
 
-We ask the user to choose a number between 1 and n.
-The user enters a number. We validate it's a number in the valid range 1..n.
-We show him the name of the animal. We ask him to choose if he want to guess (1) the average size (weight), (2) the geography or (3) the nutrition.
-We validate the input is a number 1..3.
 
-If he choose average size, we ask him to enter the average weight in the units that are in the list. For doing this we need to extract the unit from the value in the list.
-The user enters a number.
-If the number is:
-- Too low -> we show "too low ↓↓"
-- Too high -> we show "too high ↑↑"
-- right -> we show "well done! ☺"
 
-If he chooses the geography, we ask him to choose from a list of continents. The user enters a number. If the number is right we show a smily, if the number is wrong we show him a negative smily and ask him to try again.
-This repeats itself until he enters the right awnser.
 
-If he chooses the nutrition, we ask him to choose from a list of diets. The user enters a number. If the number is right we show a smily, if the number us wring we show him a negative smily and ask him to try again.
-This repeats itself until he enters the right awnser.
-
-At the end we say goodby to the user and thank him for playing the game.

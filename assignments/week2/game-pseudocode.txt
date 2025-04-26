@@ -70,6 +70,6 @@ if("number1" is a number and it is between 1 and n) {
     else
 } else {
     tell the user the imput is invalid and
-    ask the user the re-enter a number
+    ask the user to re-enter a number
 }
 
