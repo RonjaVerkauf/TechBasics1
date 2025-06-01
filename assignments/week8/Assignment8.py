@@ -15,7 +15,7 @@ clock = pygame.time.Clock()
 
 # Load your image
 original_image = pygame.image.load("My_image.png")
-original_image = pygame.transform.scale(original_image, (150, 150))  # Resize if needed
+original_image = pygame.transform.scale(original_image, (75, 75))  # Resize if needed
 
 class AnimatedObject:
     def __init__(self):
