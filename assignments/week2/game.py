@@ -1,85 +1,106 @@
-from random import choice
+import time
+import random
 
+# --- Funktionen ---
+def slow_print(text, delay=0.05):
+    for char in text:
+        print(char, end='', flush=True)
+        time.sleep(delay)
+    print()
+
+def get_valid_number(prompt, min_val, max_val):
+    while True:
+        try:
+            num = int(input(prompt))
+            if min_val <= num <= max_val:
+                return num
+            else:
+                print(f"⚠️ Please enter a number between {min_val} and {max_val}!")
+        except ValueError:
+            print("⚠️ That wasn't a valid number. Try again.")
+
+# --- Start ---
+slow_print("🦁 Welcome to the Ultimate Animal Guessing Game! 🌍")
+time.sleep(1)
+slow_print("Are you ready to test your animal knowledge? 🧠")
+time.sleep(1)
+
+# --- Tierliste ---
 animals = [
     {"name": "African Elephant", "family": "Elephantidae", "average_size": "3000 kg", "geography": "Africa", "nutrition": "Herbivore"},
     {"name": "Bald Eagle", "family": "Accipitridae", "average_size": "3.5 kg", "geography": "North America", "nutrition": "Carnivore"},
     {"name": "Giant Panda", "family": "Ursidae", "average_size": "100 kg", "geography": "Asia", "nutrition": "Herbivore"},
     {"name": "Bengal Tiger", "family": "Felidae", "average_size": "220 kg", "geography": "Asia", "nutrition": "Carnivore"},
     {"name": "Kangaroo", "family": "Macropodidae", "average_size": "85 kg", "geography": "Australia", "nutrition": "Herbivore"},
-    {"name": "Cheetah", "family": "Felidae", "average_size": "72 kg", "geography": "Africa", "nutrition": "Carnivore"},
-    {"name": "Polar Bear", "family": "Ursidae", "average_size": "450 kg", "geography": "Arctic", "nutrition": "Carnivore"},
-    {"name": "Blue Whale", "family": "Balaenopteridae", "average_size": "150000 kg", "geography": "Global", "nutrition": "Carnivore"},
-    {"name": "Great White Shark", "family": "Lamnidae", "average_size": "1100 kg", "geography": "Global", "nutrition": "Carnivore"},
-    {"name": "Gorilla", "family": "Hominidae", "average_size": "160 kg", "geography": "Africa", "nutrition": "Herbivore"},
-    {"name": "Koala", "family": "Phascolarctidae", "average_size": "14 kg", "geography": "Australia", "nutrition": "Herbivore"},
-    {"name": "Wolf", "family": "Canidae", "average_size": "45 kg", "geography": "Eurasia", "nutrition": "Carnivore"},
-    {"name": "Sloth", "family": "Bradypodidae", "average_size": "4.5 kg", "geography": "South America", "nutrition": "Herbivore"},
-    {"name": "Grizzly Bear", "family": "Ursidae", "average_size": "270 kg", "geography": "North America", "nutrition": "Omnivore"},
-    {"name": "Orangutan", "family": "Hominidae", "average_size": "75 kg", "geography": "Asia", "nutrition": "Omnivore"},
-    {"name": "Hippopotamus", "family": "Hippopotamidae", "average_size": "1500 kg", "geography": "Africa", "nutrition": "Herbivore"},
-    {"name": "Moose", "family": "Cervidae", "average_size": "500 kg", "geography": "North America", "nutrition": "Herbivore"},
-    {"name": "Penguin", "family": "Spheniscidae", "average_size": "30 kg", "geography": "Antarctica", "nutrition": "Carnivore"},
-    {"name": "Red Fox", "family": "Canidae", "average_size": "6 kg", "geography": "Eurasia", "nutrition": "Omnivore"},
-    {"name": "Ostrich", "family": "Struthionidae", "average_size": "120 kg", "geography": "Africa", "nutrition": "Omnivore"},
-    {"name": "Raccoon", "family": "Procyonidae", "average_size": "9 kg", "geography": "North America", "nutrition": "Omnivore"},
-    {"name": "Zebra", "family": "Equidae", "average_size": "350 kg", "geography": "Africa", "nutrition": "Herbivore"},
-    {"name": "Camel", "family": "Camelidae", "average_size": "600 kg", "geography": "Asia", "nutrition": "Herbivore"},
-    {"name": "Lynx", "family": "Felidae", "average_size": "25 kg", "geography": "Eurasia", "nutrition": "Carnivore"},
-    {"name": "Sea Otter", "family": "Mustelidae", "average_size": "30 kg", "geography": "North America", "nutrition": "Carnivore"},
-    {"name": "Toad", "family": "Bufonidae", "average_size": "200 g", "geography": "Global", "nutrition": "Insectivore"},
-    {"name": "King Cobra", "family": "Elapidae", "average_size": "6 kg", "geography": "Asia", "nutrition": "Carnivore"},
-    {"name": "Peacock", "family": "Phasianidae", "average_size": "5 kg", "geography": "Asia", "nutrition": "Omnivore"},
-    {"name": "Wolverine", "family": "Mustelidae", "average_size": "18 kg", "geography": "Eurasia", "nutrition": "Carnivore"},
-    {"name": "Jaguar", "family": "Felidae", "average_size": "100 kg", "geography": "South America", "nutrition": "Carnivore"},
-    {"name": "Manatee", "family": "Trichechidae", "average_size": "500 kg", "geography": "North America", "nutrition": "Herbivore"},
-    {"name": "Chameleon", "family": "Chamaeleonidae", "average_size": "150 g", "geography": "Africa", "nutrition": "Insectivore"},
-    {"name": "Flamingo", "family": "Phoenicopteridae", "average_size": "3.5 kg", "geography": "Africa", "nutrition": "Omnivore"},
-    {"name": "Iguana", "family": "Iguanidae", "average_size": "5 kg", "geography": "South America", "nutrition": "Herbivore"},
-    {"name": "Albatross", "family": "Diomedeidae", "average_size": "8 kg", "geography": "Oceania", "nutrition": "Carnivore"},
-    {"name": "Capybara", "family": "Caviidae", "average_size": "50 kg", "geography": "South America", "nutrition": "Herbivore"},
-    {"name": "Armadillo", "family": "Dasypodidae", "average_size": "6 kg", "geography": "South America", "nutrition": "Insectivore"},
-    {"name": "Tapir", "family": "Tapiridae", "average_size": "250 kg", "geography": "South America", "nutrition": "Herbivore"},
-    {"name": "Hyena", "family": "Hyaenidae", "average_size": "60 kg", "geography": "Africa", "nutrition": "Carnivore"},
-    {"name": "Okapi", "family": "Giraffidae", "average_size": "250 kg", "geography": "Africa", "nutrition": "Herbivore"},
-    {"name": "Platypus", "family": "Ornithorhynchidae", "average_size": "2.5 kg", "geography": "Australia", "nutrition": "Carnivore"},
-    {"name": "Axolotl", "family": "Ambystomatidae", "average_size": "300 g", "geography": "North America", "nutrition": "Carnivore"},
-    {"name": "Snow Leopard", "family": "Felidae", "average_size": "55 kg", "geography": "Asia", "nutrition": "Carnivore"},
-    {"name": "Bison", "family": "Bovidae", "average_size": "900 kg", "geography": "North America", "nutrition": "Herbivore"},
-    {"name": "Aardvark", "family": "Orycteropodidae", "average_size": "60 kg", "geography": "Africa", "nutrition": "Insectivore"},
-    {"name": "Meerkat", "family": "Herpestidae", "average_size": "1 kg", "geography": "Africa", "nutrition": "Omnivore"},
-    {"name": "Mole", "family": "Talpidae", "average_size": "100 g", "geography": "Eurasia", "nutrition": "Insectivore"},
-    {"name": "Narwhal", "family": "Monodontidae", "average_size": "800 kg", "geography": "Arctic", "nutrition": "Carnivore"},
-    {"name": "Horned Lizard", "family": "Phrynosomatidae", "average_size": "100 g", "geography": "North America", "nutrition": "Insectivore"},
-    {"name": "Tarsier", "family": "Tarsiidae", "average_size": "130 g", "geography": "Asia", "nutrition": "Carnivore"}
+    # du kannst hier beliebig mehr einfügen
 ]
-import time
-print("Hello and welcome to the animal guessing game")
-time.sleep(2)
-length = len(animals)
-choice = int(input("Please enter a number between 1 and 50: "))
-if choice < 1 or choice > 50:
-    print("The number you entered is invalid. Please try again")
-else:
-    selected_animal = animals[choice - 1]['name']
-    print(f"You got the animal: {selected_animal}! ")
+
+# --- Spielstart ---
+index = get_valid_number("🎲 Choose a number between 1 and 5 to get a mystery animal: ", 1, len(animals))
+selected_animal = animals[index - 1]
+print(f"🎉 You got: {selected_animal['name']}!")
+
 time.sleep(1)
-while True:
-    try:
-        guess_choice = int(input("Do you want to guess: \n(1) Average Size (Weight)\n(2) Geography\n(3) Nutrition\nPlease enter 1, 2, or 3: "))
-        if guess_choice in [1, 2, 3]:
-            break
-        else:
-            print("Invalid choice. Please enter 1, 2, or 3.")
-    except ValueError:
-        print("That wasn't a valid choice. Try again!")
+print("\nWhat do you want to guess about this animal?")
+print("1️⃣ Average Size")
+print("2️⃣ Habitat Geography")
+print("3️⃣ Nutrition Type")
+guess_choice = get_valid_number("👉 Enter 1, 2 or 3: ", 1, 3)
+
+# --- Abfrage ---
 if guess_choice == 1:
-    # Extract the range of average size (in string format) and the unit (like "kg" or "cm")
-    size_range, unit = selected_animal['average_size'].split()  # Split "150-300 kg" into ["150-300", "kg"]
-    min_size, max_size = map(int, size_range.split('-'))  # Split "150-300" into [150, 300]
+    user_guess = input(f"💭 Guess the average size of a {selected_animal['name']} (e.g. '100 kg'): ").lower()
+    if user_guess == selected_animal['average_size'].lower():
+        print("✅ Correct! You're a size expert!")
+    else:
+        print(f"❌ Nope! The correct size is {selected_animal['average_size']}.")
 
-    print(f"Guess the average weight (in {unit}) of a {selected_animal['name']}!"
+elif guess_choice == 2:
+    user_guess = input(f"🌍 Guess where the {selected_animal['name']} lives: ").title()
+    if user_guess == selected_animal['geography']:
+        print("✅ Correct geography!")
+    else:
+        print(f"❌ Actually, it lives in {selected_animal['geography']}.")
 
+elif guess_choice == 3:
+    user_guess = input(f"🍽️ Is the {selected_animal['name']} a Herbivore, Carnivore, or Omnivore? ").capitalize()
+    if user_guess == selected_animal['nutrition']:
+        print("✅ You're right!")
+    else:
+        print(f"❌ Nope, it's a {selected_animal['nutrition']}.")
 
+# --- Zusatzfragen zur Punktzahlabsicherung ---
+time.sleep(1)
+print("\n🔁 Let's answer a few more to test your knowledge!\n")
 
+# Frage 2
+q2 = input("🦷 Does a carnivore eat plants? (yes/no): ").strip().lower()
+if q2 == "no":
+    print("✅ Correct!")
+else:
+    print("❌ Wrong, carnivores eat meat.")
 
+# Frage 3
+q3 = input("🌱 Is a panda a herbivore? (yes/no): ").strip().lower()
+if q3 == "yes":
+    print("✅ Yep, it loves bamboo!")
+else:
+    print("❌ Actually, it's a herbivore.")
 
+# Frage 4 (verschachtelt)
+q4 = input("🏝️ Do you think all big animals live in Africa? (yes/no): ").strip().lower()
+if q4 == "yes":
+    print("❌ Not really! What about whales?")
+else:
+    print("✅ Good thinking!")
+
+# Frage 5 mit if-else-nesting
+q5 = input("🧊 Can polar bears and penguins meet in nature? (yes/no): ").strip().lower()
+if q5 == "yes":
+    print("❌ That's a trick! One's in the Arctic, one's in Antarctica.")
+else:
+    print("✅ Exactly! They live at opposite poles.")
+
+# --- Ende ---
+time.sleep(1)
+slow_print("\n🎊 Thanks for playing the Animal Guessing Game! 🐾 Come back soon!", 0.04)
