@@ -1,8 +1,14 @@
-# TechBasics1
+## TechBasics1
 
-The following text refers to **Assignment 1** of the Digital Media class *"Tech Basics 1"*.
+**Hello** and welcome to my **first** ever **repository!** 🐣
 
-This text demonstrates some features of the "markdown" markup language. On the following website you can find some practical informations: [markdown guide](https://www.markdownguide.org)   
+Here you will find *"All"* of my weekly Assignments
+
+Have a look at the Assignment for this week (`week1`) for a cute supprise 🦕
+
+
+# Side Note
+This text is not only an introduction to my repository but also demonstrates some features of the "markdown" markup language. On the following website you can find some practical informations: [markdown guide](https://www.markdownguide.org)   
 
 ---
 
